@@ -1,0 +1,29 @@
+fields:
+    title:
+        label: 'stefan.gallery::lang.images.title.label'
+        span: left
+        placeholder: 'stefan.gallery::lang.images.title.placeholder'
+        required: 1
+        type: text
+        comment: 'stefan.gallery::lang.images.title.comment'
+    tags:
+        label: 'stefan.gallery::lang.images.tags.label'
+        span: right
+        required: 0
+        type: checkboxlist
+        comment: 'stefan.gallery::lang.images.tags.comment'
+    src:
+        label: 'stefan.gallery::lang.images.src.label'
+        mode: image
+        span: left
+        required: 1
+        type: mediafinder
+        comment: 'stefan.gallery::lang.images.src.comment'
+    description:
+        label: 'stefan.gallery::lang.images.description.label'
+        size: small
+        span: full
+        placeholder: 'stefan.gallery::lang.images.description.placeholder'
+        required: 1
+        type: textarea
+        comment: 'stefan.gallery::lang.images.description.comment'

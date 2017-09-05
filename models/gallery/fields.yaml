@@ -1,0 +1,57 @@
+fields:
+    images:
+        label: 'stefan.gallery::lang.imageslabel'
+        oc.commentPosition: ''
+        mode: image
+        imageWidth: 100%
+        imageHeight: auto
+        useCaption: true
+        thumbOptions:
+            mode: crop
+            offset:
+                - 0
+                - 0
+            quality: 100
+            sharpen: 0
+            interlace: false
+            extension: auto
+        span: full
+        type: stefan_gallery_imageupload
+tabs:
+    fields:
+        title:
+            label: 'stefan.gallery::lang.gallery.title.label'
+            span: auto
+            placeholder: 'stefan.gallery::lang.gallery.title.placeholder'
+            required: 1
+            type: text
+            comment: 'stefan.gallery::lang.gallery.title.comment'
+            tab: 'Tab 1'
+        slug:
+            label: 'stefan.gallery::lang.gallery.slug.label'
+            span: auto
+            placeholder: 'stefan.gallery::lang.gallery.slug.placeholder'
+            required: 1
+            comment: 'stefan.gallery::lang.gallery.slug.comment'
+            preset:
+                field: title
+                type: slug
+            type: text
+            tab: 'Tab 1'
+        description:
+            label: 'stefan.gallery::lang.gallery.description.label'
+            size: small
+            span: auto
+            placeholder: 'stefan.gallery::lang.gallery.description.placeholder'
+            required: 1
+            type: textarea
+            comment: 'stefan.gallery::lang.gallery.description.comment'
+            tab: 'Tab 1'
+        published:
+            label: 'stefan.gallery::lang.gallery.published.label'
+            span: full
+            default: 1
+            required: 1
+            type: switch
+            comment: 'stefan.gallery::lang.gallery.published.comment'
+            tab: 'Tab 1'

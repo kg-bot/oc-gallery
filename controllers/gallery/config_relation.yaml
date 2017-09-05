@@ -1,0 +1,15 @@
+# ===================================
+#  Relation Behavior Config
+# ===================================
+
+images:
+    label: Gallery Images
+    view:
+        list: $/stefan/gallery/models/image/columns.yaml
+        toolbarButtons: add|create|remove
+        showSearch: true
+    manage:
+        form: $/stefan/gallery/models/image/fields.yaml
+        list: $/stefan/gallery/models/image/columns.yaml
+        recordsPerPage: 10
+        showSearch: true

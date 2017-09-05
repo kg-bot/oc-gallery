@@ -1,0 +1,11 @@
+name: Gallery
+modelClass: Stefan\Gallery\Models\Gallery
+form: $/stefan/gallery/models/gallery/fields.yaml
+defaultRedirect: stefan/gallery/gallery
+create:
+    redirect: 'stefan/gallery/gallery/update/:id'
+    redirectClose: stefan/gallery/gallery
+update:
+    redirect: stefan/gallery/gallery
+    redirectClose: stefan/gallery/gallery
+preview: {  }

@@ -1,0 +1,10 @@
+name: Image
+form: $/stefan/gallery/models/image/fields.yaml
+modelClass: Stefan\Gallery\Models\Image
+defaultRedirect: stefan/gallery/image
+create:
+    redirect: 'stefan/gallery/image/update/:id'
+    redirectClose: stefan/gallery/image
+update:
+    redirect: stefan/gallery/image
+    redirectClose: stefan/gallery/image
