@@ -7,6 +7,7 @@
 $(document).on('shown.bs.modal', '.modal', function(event) {
 	console.log($('.available-tags').data('tags'));
 	$(this).find('.image-tags-select').select2({
+		theme: 'bootstrap',
 		placeholder: 'Insert Tags',
 		tags: true,
 		tokenSeparators: [',', ' '],

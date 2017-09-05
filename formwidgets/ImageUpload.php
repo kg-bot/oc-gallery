@@ -25,6 +25,7 @@ class ImageUpload extends FileUpload
         parent::loadAssets();
         $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/cropper/3.0.0/cropper.min.css', 'core');
         $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', 'core');
+        $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css', 'core');
 
         $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/cropper/3.0.0/cropper.min.js', 'core');
         $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', 'core');
