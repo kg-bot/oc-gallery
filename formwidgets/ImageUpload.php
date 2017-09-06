@@ -16,6 +16,11 @@ class ImageUpload extends FileUpload
      */
     protected $defaultAlias = 'stefan_gallery_imageupload';
 
+    public function index()
+    {
+        return 'hello';
+    }
+
 
     /**
      * @inheritDoc

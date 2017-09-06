@@ -13,16 +13,6 @@
                         alt=""
                         title="<?= e(trans('backend::lang.fileupload.attachment')) ?>: <?= e($file->file_name) ?>"
                         style="<?= $cssDimensions ?>" />
-
-                <div class="row text-center">
-                    <a
-                        href="#cropImage"
-                        class="btn btn-primary"
-                        onclick="cropImage(this);"
-                        data-popup-load-indicator>
-                        Crop
-                    </a>
-                </div>
             </div>
         <?php else: ?>
             <div class="modal-header">

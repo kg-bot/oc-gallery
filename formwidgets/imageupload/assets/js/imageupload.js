@@ -18,7 +18,7 @@ $(document).on('shown.bs.modal', '.modal', function(event) {
 	$file_id = $(this).find('input[name="file_id"]').val();
 	$(this).find('.img-responsive').cropper({
 		viewMode: 1,
-		autoCrop: true,
+		autoCrop: false,
 		crop: function(result) {
 			$crop_info = {'x': result.x, 'y': result.y, 'width': result.width, 'height': result.height, 'file_id': $file_id}
 		}

@@ -1,0 +1,14 @@
+{
+    "name": "stefan/oc-gallery",
+    "description": "OctoberCMS Most Feature rich gallery",
+    "type": "library",
+    "require": {
+        "intervention/image": "^2.4"
+    },
+    "authors": [
+        {
+            "name": "Stefan Ninic",
+            "email": "ninicstefan94@gmail.com"
+        }
+    ]
+}
