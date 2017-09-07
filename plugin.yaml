@@ -1,0 +1,42 @@
+plugin:
+    name: 'stefan.gallery::lang.plugin.name'
+    description: 'stefan.gallery::lang.plugin.description'
+    author: Stefan
+    icon: oc-icon-camera
+    homepage: ''
+permissions:
+    stefan.gallery.tags:
+        tab: 'stefan.gallery::lang.permissions.galleries.title'
+        label: 'stefan.gallery::lang.permissions.tags.label'
+    stefan.gallery.galleries:
+        tab: 'stefan.gallery::lang.permissions.galleries.title'
+        label: 'stefan.gallery::lang.permissions.galleries.label'
+    stefan.gallery.images:
+        tab: 'stefan.gallery::lang.permissions.galleries.title'
+        label: 'stefan.gallery::lang.permissions.images.label'
+navigation:
+    stefan-gallery-galleries:
+        label: 'stefan.gallery::lang.menues.main.gallery'
+        url: stefan/gallery/gallery
+        icon: icon-camera
+        permissions:
+            - 'stefan.gallery.*'
+        sideMenu:
+            stefan-gallery-galleries-menu:
+                label: 'stefan.gallery::lang.menues.side.galleries'
+                url: stefan/gallery/gallery
+                icon: icon-camera
+                permissions:
+                    - stefan.gallery.galleries
+            stefan-gallery-tags-menu:
+                label: 'stefan.gallery::lang.menues.side.tags'
+                url: stefan/gallery/tag
+                icon: icon-tags
+                permissions:
+                    - stefan.gallery.tags
+            stefan-gallery-images-menu:
+                label: 'stefan.gallery::lang.menues.side.images.label'
+                url: stefan/gallery/image
+                icon: icon-image
+                permissions:
+                    - stefan.gallery.images

@@ -1,0 +1,11 @@
+1.0.1:
+    - 'Initialize plugin.'
+1.0.2:
+    - 'Created table stefan_gallery_galleries'
+    - builder_table_create_stefan_gallery_galleries.php
+1.0.3:
+    - 'Created table stefan_gallery_tags'
+    - builder_table_create_stefan_gallery_tags.php
+1.0.4:
+    - 'Add column tags to system_files'
+    - migration104.php

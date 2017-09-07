@@ -1,0 +1,16 @@
+title: Gallery
+modelClass: Stefan\Gallery\Models\Gallery
+list: $/stefan/gallery/models/gallery/columns.yaml
+recordUrl: 'stefan/gallery/gallery/update/:id'
+noRecordsMessage: 'backend::lang.list.no_records'
+recordsPerPage: '10'
+showSetup: true
+showCheckboxes: true
+showSorting: 1
+defaultSort:
+    column: title
+    direction: asc
+toolbar:
+    buttons: list_toolbar
+    search:
+        prompt: 'backend::lang.list.search_prompt'

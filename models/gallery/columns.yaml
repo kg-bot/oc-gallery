@@ -1,0 +1,22 @@
+columns:
+    created_at:
+        label: created_at
+        type: datetime
+        sortable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        sortable: true
+    title:
+        label: title
+        type: text
+        searchable: true
+        sortable: true
+    description:
+        label: description
+        type: text
+    published:
+        label: published
+        type: switch
+        searchable: false
+        sortable: false

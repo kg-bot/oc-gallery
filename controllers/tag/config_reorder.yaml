@@ -1,0 +1,4 @@
+title: Tag
+modelClass: Stefan\Gallery\Models\Tag
+toolbar:
+    buttons: reorder_toolbar

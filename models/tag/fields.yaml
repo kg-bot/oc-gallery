@@ -1,0 +1,8 @@
+fields:
+    title:
+        label: 'stefan.gallery::lang.tags.title.label'
+        span: left
+        placeholder: 'stefan.gallery::lang.tags.title.placeholder'
+        required: 1
+        type: text
+        comment: 'stefan.gallery::lang.tags.title.comment'

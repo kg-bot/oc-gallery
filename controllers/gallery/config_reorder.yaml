@@ -1,0 +1,5 @@
+title: Gallery
+modelClass: Stefan\Gallery\Models\Gallery
+nameFrom: title
+toolbar:
+    buttons: reorder_toolbar
