@@ -3,7 +3,6 @@
 use Backend\Classes\Controller;
 use BackendMenu;
 use Stefan\Gallery\Models\Image;
-use Event;
 
 class Gallery extends Controller
 {
@@ -23,7 +22,5 @@ class Gallery extends Controller
         BackendMenu::setContext('Stefan.Gallery', 'stefan-gallery-galleries');
 
         $this->addCss('/plugins/stefan/gallery/assets/css/formheight.css');
-
-        dd(Event::getFacadeRoot()->listeners);
     }
 }
