@@ -5,6 +5,7 @@ use Intervention\Image\ImageManager;
 use Illuminate\Support\Facade\Storage as LStorage;
 
 use Stefan\Gallery\Models\Tag;
+use October\Rain\Database\Attach\Resizer;
 
 /**
  * imageupload Form Widget
@@ -42,22 +43,19 @@ class ImageUpload extends FileUpload
      * 
      * @return void
      */
-    public function onImageCrop()
+    public function on_ImageCrop($width = null, $height = null, $x = null, $y = null, $file_id)
     {
-        $fileModel = $this->getRelationModel();
+        if($width && $height && $x && $y) {
+            
+            $fileModel = $this->getRelationModel();
 
-        $file = $fileModel::find(input('file_id'));
+            $file = $fileModel::find($file_id);
 
-        // create an image manager instance with favored driver
-        $manager = new ImageManager(array('driver' => 'gd'));
-        $file_path = $file->getPath();
-
-        // to finally create image instances
-        $image = $manager->make($file_path)->crop((int) input('width'), (int) input('height'), (int) input('x'), (int) input('y'))->stream();
-
-        \Storage::put($file->getDiskPath(), $image);
-
-        return ['url' => $file_path, 'thumb_url' => $file->thumbUrl];
+            $file_on_disk= $file->getDiskPath();
+            
+            // to finally create image instances
+            Resizer::open('storage/app/' . $file_on_disk)->crop((int) $x, (int) $y, (int) $width, (int) $height)->save('storage/app/' . $file_on_disk, 100);
+        }
     }
 
     /**
@@ -88,7 +86,14 @@ class ImageUpload extends FileUpload
                 $file->tags = post('tags');
                 $file->save();
 
+                // Save every new tag into database for later reuse
+                $this->saveNewTags(post('tags'));
+
+                // Crop image
+
                 $response = parent::onSaveAttachmentConfig();
+
+                $this->on_ImageCrop(input('crop-width'), input('crop-height'), input('crop-x'), input('crop-y'), post('file_id'));
 
                 return $response;
             }
@@ -113,5 +118,20 @@ class ImageUpload extends FileUpload
         }
 
         return $tags;
+    }
+
+    /**
+     * When user enters a new tag it should be saved to datbaase for later usage
+     * @param  array  $tags Tags to insert into database
+     * @return void
+     */
+    protected function saveNewTags($tags = [])
+    {
+        if(count($tags)) {
+            foreach($tags as $tag) {
+
+                Tag::firstOrCreate(['title' => $tag]);
+            }
+        }
     }
 }

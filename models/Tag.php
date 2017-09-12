@@ -28,4 +28,9 @@ class Tag extends Model
      * @var string The database table used by the model.
      */
     public $table = 'stefan_gallery_tags';
+
+    /**
+     * @var array Attributes that are mass assignable
+     */
+    protected $fillable = ['title'];
 }

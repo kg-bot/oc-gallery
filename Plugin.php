@@ -17,8 +17,11 @@ class Plugin extends PluginBase
 	public function boot()
 	{
 		File::extend(function($model) {
-			$model->implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
-			$model->addDynamicProperty('translatable', ['title', 'description']);
+			if($model instanceof Stefan\Gallery\Models\Gallery) {
+				
+				$model->implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
+				$model->addDynamicProperty('translatable', ['title', 'description']);
+			}
 		});
 	}
 }

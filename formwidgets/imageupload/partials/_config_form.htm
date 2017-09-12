@@ -8,7 +8,7 @@
             <div class="file-upload-modal-image-header">
                     <button type="button" class="close" data-dismiss="popup">&times;</button>
                     <img
-                        src="<?= $file->pathUrl ?>"
+                        src="<?= $file->pathUrl ?>?time=<?= time() ?>"
                         class="img-responsive center-block"
                         alt=""
                         title="<?= e(trans('backend::lang.fileupload.attachment')) ?>: <?= e($file->file_name) ?>"
@@ -23,6 +23,10 @@
         <div class="modal-body">
             <p><?= e(trans('backend::lang.fileupload.help')) ?></p>
 
+            <input type="number" name="crop-x" hidden/>
+            <input type="number" name="crop-y" hidden />
+            <input type="number" name="crop-width" hidden />
+            <input type="number" name="crop-height" hidden />
             <div class="form-group">
                 <input
                     type="text"

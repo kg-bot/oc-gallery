@@ -1,10 +1,9 @@
 {
     "name": "stefan/oc-gallery",
     "description": "OctoberCMS Most Feature rich gallery",
-    "type": "library",
-    "require": {
-        "intervention/image": "^2.4"
-    },
+    "type": "october-plugin",
+    "keywords": ["october", "octobercms", "gallery", "images", "crop", "tags"],
+    "license": "MIT",
     "authors": [
         {
             "name": "Stefan Ninic",

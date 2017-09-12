@@ -5,28 +5,40 @@
  */
 
 $(document).on('shown.bs.modal', '.modal', function(event) {
-	console.log($('.available-tags').data('tags'));
+
 	$(this).find('.image-tags-select').select2({
 		theme: 'bootstrap',
 		placeholder: 'Insert Tags',
 		tags: true,
 		tokenSeparators: [',', ' '],
-		allowClear: true,
-		closeOnSelect: false,
+		allowClear: false,
+		closeOnSelect: true,
 		data: $('.available-tags').data('tags')
 	});
+
 	$file_id = $(this).find('input[name="file_id"]').val();
+
 	$(this).find('.img-responsive').cropper({
 		viewMode: 1,
 		autoCrop: false,
+		movable: false,
+		rotatable: false,
+		scalable: false,
+		zoomable: false,
 		crop: function(result) {
-			$crop_info = {'x': result.x, 'y': result.y, 'width': result.width, 'height': result.height, 'file_id': $file_id}
+			$('input[name="crop-x"]').val(result.x);
+			$('input[name="crop-y"]').val(result.y);
+			$('input[name="crop-width"]').val(result.width);
+			$('input[name="crop-height"]').val(result.height);
+
+			console.log(result);
 		}
 	});
 
 	
 })
 
+/*
 function cropImage(element) {
 	$.request('onImageCrop', {
 		data: $crop_info,
@@ -47,4 +59,4 @@ function cropImage(element) {
 			console.log($('img[data-dz-thumbnail][src="' + data.thumb_url + '"]'));
 		}
 	});
-}
+}*/

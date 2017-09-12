@@ -39,6 +39,6 @@ class Gallery extends Model
     public $table = 'stefan_gallery_galleries';
 
     public $attachMany = [
-        'images' => ['Stefan\Gallery\Models\Image', 'order' => 'sort_order'],
+        'images' => ['Stefan\Gallery\Models\Image', 'order' => 'sort_order', 'delete' => true],
     ];
 }
