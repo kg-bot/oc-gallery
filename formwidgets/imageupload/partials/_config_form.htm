@@ -45,7 +45,7 @@
 
             <div class="form-group">
                 <input hidden data-tags='<?= $available_tags ?>' class="available-tags" />
-                <select name="tags[]" class="image-tags-select form-control" multiple="multiple">
+                <select name="tags[]" class="image-tags-select form-control simple-select" multiple="multiple">
                     <?php if ($file->tags and count($file->tags)): ?>
                         <?php foreach($file->tags as $tag): ?>
                             <option value="<?= $tag ?>" selected><?= $tag ?></option>
@@ -63,6 +63,7 @@
                 type="submit"
                 class="btn btn-primary"
                 data-request="<?= $this->getEventHandler('onSaveAttachmentConfig') ?>"
+                data-request-success="refreshPreview(this, context, data)"
                 data-popup-load-indicator>
                 <?= e(trans('backend::lang.form.save')) ?>
             </button>

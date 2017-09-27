@@ -1,12 +1,4 @@
 columns:
-    created_at:
-        label: created_at
-        type: datetime
-        sortable: true
-    updated_at:
-        label: updated_at
-        type: datetime
-        sortable: true
     title:
         label: title
         type: text
@@ -20,3 +12,11 @@ columns:
         type: switch
         searchable: false
         sortable: false
+    created_at:
+        label: created_at
+        type: datetime
+        sortable: true
+    updated_at:
+        label: updated_at
+        type: datetime
+        sortable: true

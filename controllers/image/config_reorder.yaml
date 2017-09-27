@@ -1,5 +1,0 @@
-title: Image
-nameFrom: title
-modelClass: Stefan\Gallery\Models\Image
-toolbar:
-    buttons: reorder_toolbar

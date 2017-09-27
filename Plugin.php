@@ -16,6 +16,7 @@ class Plugin extends PluginBase
 
 	public function boot()
 	{
+
 		File::extend(function($model) {
 			if($model instanceof Stefan\Gallery\Models\Gallery) {
 				

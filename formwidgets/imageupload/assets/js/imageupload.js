@@ -21,10 +21,6 @@ $(document).on('shown.bs.modal', '.modal', function(event) {
 	$(this).find('.img-responsive').cropper({
 		viewMode: 1,
 		autoCrop: false,
-		movable: false,
-		rotatable: false,
-		scalable: false,
-		zoomable: false,
 		crop: function(result) {
 			$('input[name="crop-x"]').val(result.x);
 			$('input[name="crop-y"]').val(result.y);
@@ -38,25 +34,13 @@ $(document).on('shown.bs.modal', '.modal', function(event) {
 	
 })
 
-/*
-function cropImage(element) {
-	$.request('onImageCrop', {
-		data: $crop_info,
-		redirect: '#cropImage',
-		success: function(data) {
-
-			var date = new Date();
-			$new_url = data.url + '?' + date.getTime();
-
-			$cropper_canvas = $('.cropper-canvas').find('img');
-			$cropper_view_box = $('.cropper-view-box').find('img');
-
-			$($cropper_canvas).attr('src', $new_url);
-			$($cropper_view_box).attr('src', $new_url);
-
-			console.log(data);
-
-			console.log($('img[data-dz-thumbnail][src="' + data.thumb_url + '"]'));
-		}
+// TODO: Should be finished to show preview image refresh
+function refreshPreview(element, context, data) {
+	$containers = $(".upload-object.is-success");
+	$container = $containers.filter(function(index) {
+		return $(this).data('id') == data.file_id;
 	});
-}*/
+
+	console.log('Thumb: ' + data.new_thumb);
+	$($container).find("img").attr('src', data.new_thumb);
+}

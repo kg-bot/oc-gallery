@@ -215,7 +215,6 @@
     }
 
     FileUpload.prototype.addExtraFormData = function(formData) {
-        console.log("Here");
         if (this.options.extraData) {
             $.each(this.options.extraData, function (name, value) {
                 formData.append(name, value)

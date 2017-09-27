@@ -3,8 +3,6 @@ fields:
         label: 'stefan.gallery::lang.imageslabel'
         oc.commentPosition: ''
         mode: image
-        imageWidth: 100%
-        imageHeight: auto
         useCaption: true
         thumbOptions:
             mode: crop

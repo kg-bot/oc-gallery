@@ -1,7 +1,6 @@
 <?php namespace Stefan\Gallery\FormWidgets;
 
 use Backend\FormWidgets\FileUpload;
-use Intervention\Image\ImageManager;
 use Illuminate\Support\Facade\Storage as LStorage;
 
 use Stefan\Gallery\Models\Tag;
@@ -17,11 +16,6 @@ class ImageUpload extends FileUpload
      */
     protected $defaultAlias = 'stefan_gallery_imageupload';
 
-    public function index()
-    {
-        return 'hello';
-    }
-
 
     /**
      * @inheritDoc
@@ -30,11 +24,9 @@ class ImageUpload extends FileUpload
     {
         parent::loadAssets();
         $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/cropper/3.0.0/cropper.min.css', 'core');
-        $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css', 'core');
         $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css', 'core');
 
         $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/cropper/3.0.0/cropper.min.js', 'core');
-        $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js', 'core');
         $this->addJs('js/imageupload.js', 'core');
     }
 
@@ -54,7 +46,12 @@ class ImageUpload extends FileUpload
             $file_on_disk= $file->getDiskPath();
             
             // to finally create image instances
-            Resizer::open('storage/app/' . $file_on_disk)->crop((int) $x, (int) $y, (int) $width, (int) $height)->save('storage/app/' . $file_on_disk, 100);
+            \Session::flash('image-resize', Resizer::open('storage/app/' . $file_on_disk)->crop((int) $x, (int) $y, (int) $width, (int) $height)->save('storage/app/' . $file_on_disk, 100));
+
+            //Delete old thumbs
+            $file->deleteThumbs();
+            // Generate new thumb from cropped image
+            return $file->getThumb($width, $height);
         }
     }
 
@@ -91,9 +88,9 @@ class ImageUpload extends FileUpload
 
                 // Crop image
 
-                $response = parent::onSaveAttachmentConfig();
-
-                $this->on_ImageCrop(input('crop-width'), input('crop-height'), input('crop-x'), input('crop-y'), post('file_id'));
+                parent::onSaveAttachmentConfig();
+                $response['file_id'] = $file->id;
+                $response['new_thumb'] = $this->on_ImageCrop(input('crop-width'), input('crop-height'), input('crop-x'), input('crop-y'), post('file_id'));
 
                 return $response;
             }
