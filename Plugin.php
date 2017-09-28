@@ -2,10 +2,12 @@
 
 use System\Classes\PluginBase;
 
-use October\Rain\Database\Attach\File;
+use System\Models\File;
 
 class Plugin extends PluginBase
 {
+
+	public $require = ['Inetis.ListSwitch'];
 
 	public function registerFormWidgets()
 	{
@@ -18,7 +20,7 @@ class Plugin extends PluginBase
 	{
 
 		File::extend(function($model) {
-			if($model instanceof Stefan\Gallery\Models\Gallery) {
+			if($model instanceof System\Models\File) {
 				
 				$model->implement = ['@RainLab.Translate.Behaviors.TranslatableModel'];
 				$model->addDynamicProperty('translatable', ['title', 'description']);

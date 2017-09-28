@@ -25,6 +25,7 @@ class ImageUpload extends FileUpload
         parent::loadAssets();
         $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/cropper/3.0.0/cropper.min.css', 'core');
         $this->addCss('https://cdnjs.cloudflare.com/ajax/libs/select2-bootstrap-theme/0.1.0-beta.10/select2-bootstrap.min.css', 'core');
+        $this->addCss('css/imageupload.css', 'imageupload');
 
         $this->addJs('https://cdnjs.cloudflare.com/ajax/libs/cropper/3.0.0/cropper.min.js', 'core');
         $this->addJs('js/imageupload.js', 'core');
@@ -51,7 +52,7 @@ class ImageUpload extends FileUpload
             //Delete old thumbs
             $file->deleteThumbs();
             // Generate new thumb from cropped image
-            return $file->getThumb($width, $height);
+            return $file->getThumb(250, 250);
         }
     }
 

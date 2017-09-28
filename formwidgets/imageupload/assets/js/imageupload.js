@@ -1,7 +1,6 @@
 /*
  * This is a sample JavaScript file used by {{ name }}
  *
- * You can delete this file if you want
  */
 
 $(document).on('shown.bs.modal', '.modal', function(event) {
@@ -34,13 +33,20 @@ $(document).on('shown.bs.modal', '.modal', function(event) {
 	
 })
 
-// TODO: Should be finished to show preview image refresh
+/**
+ * Function used to refresh image preview after crop
+ * @param  {[type]} element [description]
+ * @param  {[type]} context [description]
+ * @param  {[type]} data    [description]
+ * @return {[type]}         [description]
+ */
 function refreshPreview(element, context, data) {
 	$containers = $(".upload-object.is-success");
 	$container = $containers.filter(function(index) {
 		return $(this).data('id') == data.file_id;
 	});
 
-	console.log('Thumb: ' + data.new_thumb);
-	$($container).find("img").attr('src', data.new_thumb);
+	if(data.new_thumb !== null) {
+		$($container).find("img").attr('src', data.new_thumb);
+	}
 }

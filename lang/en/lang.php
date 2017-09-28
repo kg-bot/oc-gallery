@@ -23,6 +23,9 @@
             'label' => 'Published',
             'comment' => 'Is This Gallery Published',
         ],
+        'tabs' => [
+            'details' => 'Description'
+        ]
     ],
     'tags' => [
         'title' => [

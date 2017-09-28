@@ -9,3 +9,6 @@
 1.0.4:
     - 'Add column tags to system_files'
     - migration104.php
+1.0.5:
+    - 'Updated table stefan_gallery_galleries'
+    - builder_table_update_stefan_gallery_galleries.php

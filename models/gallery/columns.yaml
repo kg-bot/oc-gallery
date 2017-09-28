@@ -9,7 +9,7 @@ columns:
         type: text
     published:
         label: published
-        type: switch
+        type: inetis-list-switch
         searchable: false
         sortable: false
     created_at:
