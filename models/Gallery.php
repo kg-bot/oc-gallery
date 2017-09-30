@@ -42,4 +42,9 @@ class Gallery extends Model
     public $attachMany = [
         'images' => ['Stefan\Gallery\Models\Image', 'order' => 'sort_order', 'delete' => true],
     ];
+
+    public function scopePublished($query)
+    {
+        $query->where('published', 1);
+    }
 }

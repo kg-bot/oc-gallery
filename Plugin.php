@@ -27,4 +27,11 @@ class Plugin extends PluginBase
 			}
 		});
 	}
+
+	public function registerComponents()
+	{
+	    return [
+	        'Stefan\Gallery\Components\Gallery' => 'stefanGallery'
+	    ];
+	}
 }

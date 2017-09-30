@@ -1,0 +1,32 @@
+<div class="container gallery-container">
+
+    <h1>{{ galleryName }}</h1>
+
+    <p class="page-description text-center">{{ galleryDescription }}</p>
+    
+    <div class="stefan-gallery">
+
+        <div class="row">
+{% for image in __SELF__.images %}
+            <div class="col-sm-6 col-md-4">
+                <div class="thumbnail">
+                    <a class="lightbox" href="{{ image.path }}">
+                        <img src="{{ image.path }}" alt="{{ image.title }}">
+                    </a>
+                    <div class="caption">
+                        <h3>{{ image.title }}</h3>
+                        <p>{{ image.description }}</p>
+{% if image.tags %}
+    {% for tag in image.tags %}
+        <a href="#">{{ tag }}</a>
+    {% endfor %}
+{% endif %}
+                    </div>
+                </div>
+            </div>
+{% endfor %}
+        </div>
+
+    </div>
+
+</div>

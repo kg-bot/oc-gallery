@@ -1,0 +1,17 @@
+{% if __SELF__.property('theme') == 'thumbnail' %}
+    
+    {% partial __SELF__ ~ "::thumbnail-gallery" %}
+
+{% elseif __SELF__.property('theme') == 'grid' %}
+
+    {% partial __SELF__ ~ "::grid-gallery" %}
+
+{% elseif __SELF__.property('theme') == 'clean' %}
+
+    {% partial __SELF__ ~ "::clean-gallery" %}
+
+{% else %}
+
+    {% partial __SELF__ ~ "::fluid-gallery" %}
+
+{% endif %}

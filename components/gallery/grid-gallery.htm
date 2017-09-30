@@ -1,0 +1,21 @@
+<div class="container gallery-container">
+
+    <h1>{{ galleryName }}</h1>
+
+    <p class="page-description text-center">{{ galleryDescription }}</p>
+    
+    <div class="stefan-gallery">
+
+        <div class="row">
+{% for image in __SELF__.images %}
+            <div class="col-sm-6 col-md-4">
+                <a class="lightbox" href="{{ image.path }}">
+                    <img src="{{ image.path }}" alt="{{ image.title }}">
+                </a>
+            </div>
+{% endfor %}
+        </div>
+
+    </div>
+
+</div>
