@@ -22,5 +22,6 @@ class Gallery extends Controller
         BackendMenu::setContext('Stefan.Gallery', 'stefan-gallery-galleries');
 
         $this->addCss('/plugins/stefan/gallery/assets/css/formheight.css');
+        $this->addCss('/plugins/stefan/gallery/assets/css/inetis-list-switch.css');
     }
 }
