@@ -81,7 +81,7 @@ class ImageUpload extends FileUpload
         try {
             $fileModel = $this->getRelationModel();
             if (($fileId = post('file_id')) && ($file = $fileModel::find($fileId))) {
-                $file->tags = post('tags');
+                $file->stefan_gallery_tags = post('tags');
                 $file->save();
 
                 // Save every new tag into database for later reuse

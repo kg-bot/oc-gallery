@@ -18,5 +18,5 @@ class Image extends File
         'title',
     ];
 
-    protected $jsonable = ['tags'];
+    protected $jsonable = ['stefan_gallery_tags'];
 }

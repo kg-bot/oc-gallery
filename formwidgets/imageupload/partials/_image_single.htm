@@ -25,7 +25,7 @@
             <div class="upload-object is-success" data-file-id="<?= $singleFile->id ?>" data-id="<?= $singleFile->id ?>" data-path="<?= $singleFile->pathUrl ?>">
                 <span style="display:none;" data-id="<?= $singleFile->id ?>"></span>
                 <div class="icon-container image">
-                    <img src="<?= $singleFile->thumbUrl ?>?time=<?= time() ?>" alt="" />
+                    <img src="<?= $singleFile->getThumb(100, 100, ['mode' => 'crop']) ?>?time=<?= time() ?>" alt="" />
                 </div>
                 <div class="info">
                     <h4 class="filename">
